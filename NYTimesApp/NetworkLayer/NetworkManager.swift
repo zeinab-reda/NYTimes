@@ -19,5 +19,5 @@ struct NetworkManager {
                  .filterSuccessfulStatusAndRedirectCodes()   // we tell it to only complete the call if the operation is successful, otherwise it will give us an error
                  .map(NewsModel.self)
     }
-  
+
 }

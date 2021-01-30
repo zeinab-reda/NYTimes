@@ -8,6 +8,8 @@ target 'NYTimesApp' do
   pod 'RxSwift'
   pod 'Moya/RxSwift'
   pod 'AlamofireImage'
+  pod 'JGProgressHUD'
+
   end
   
   use_frameworks!

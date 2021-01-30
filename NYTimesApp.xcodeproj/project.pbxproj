@@ -27,6 +27,8 @@
 		16CA6DA125C5AAD40063AD00 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA6DA025C5AAD40063AD00 /* AppError.swift */; };
 		16CA6DAC25C5B0560063AD00 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA6DAB25C5B0560063AD00 /* NetworkManager.swift */; };
 		16CA6DB225C5E4C90063AD00 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA6DB125C5E4C90063AD00 /* BaseViewModel.swift */; };
+		16CA6DC625C5FD6C0063AD00 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA6DC525C5FD6C0063AD00 /* BaseViewController.swift */; };
+		16CA6DCB25C5FD8D0063AD00 /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16CA6DCA25C5FD8D0063AD00 /* BaseViewProtocol.swift */; };
 		5A68D43821BE938A1F491E94 /* Pods_NYTimesApp_NYTimesAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBFA99FBC093C5417C3D3FCC /* Pods_NYTimesApp_NYTimesAppUITests.framework */; };
 		8694E9E533EE8CE1920525CB /* Pods_NYTimesAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B7B5B0C338302F782ECCDAE /* Pods_NYTimesAppTests.framework */; };
 /* End PBXBuildFile section */
@@ -74,6 +76,8 @@
 		16CA6DA025C5AAD40063AD00 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		16CA6DAB25C5B0560063AD00 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		16CA6DB125C5E4C90063AD00 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		16CA6DC525C5FD6C0063AD00 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		16CA6DCA25C5FD8D0063AD00 /* BaseViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
 		21893FE332D8E01C02C4C39B /* Pods-NYTimesApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYTimesApp.release.xcconfig"; path = "Target Support Files/Pods-NYTimesApp/Pods-NYTimesApp.release.xcconfig"; sourceTree = "<group>"; };
 		5275C751D74DAAA3A5E928A2 /* Pods-NYTimesApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYTimesApp.debug.xcconfig"; path = "Target Support Files/Pods-NYTimesApp/Pods-NYTimesApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7DA429842D5F24E81637CE2F /* Pods-NYTimesAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NYTimesAppTests.release.xcconfig"; path = "Target Support Files/Pods-NYTimesAppTests/Pods-NYTimesAppTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -217,9 +221,9 @@
 		16693F7B25C4C92700D9DE7D /* NetworkLayer */ = {
 			isa = PBXGroup;
 			children = (
+				16CA6DAB25C5B0560063AD00 /* NetworkManager.swift */,
 				16CA6D9B25C5AA800063AD00 /* APIClient.swift */,
 				16CA6DA025C5AAD40063AD00 /* AppError.swift */,
-				16CA6DAB25C5B0560063AD00 /* NetworkManager.swift */,
 			);
 			path = NetworkLayer;
 			sourceTree = "<group>";
@@ -262,6 +266,8 @@
 			isa = PBXGroup;
 			children = (
 				16CA6DB125C5E4C90063AD00 /* BaseViewModel.swift */,
+				16CA6DC525C5FD6C0063AD00 /* BaseViewController.swift */,
+				16CA6DCA25C5FD8D0063AD00 /* BaseViewProtocol.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -533,8 +539,10 @@
 				16693F8F25C4CB0700D9DE7D /* NewsDetailsViewController.swift in Sources */,
 				16693EF925C4A78200D9DE7D /* NewsViewController.swift in Sources */,
 				16CA6D9C25C5AA800063AD00 /* APIClient.swift in Sources */,
+				16CA6DC625C5FD6C0063AD00 /* BaseViewController.swift in Sources */,
 				16693F9725C4CB2700D9DE7D /* NewsTableViewCell.swift in Sources */,
 				16693FB025C4DCCF00D9DE7D /* NewsTableViewDataSource.swift in Sources */,
+				16CA6DCB25C5FD8D0063AD00 /* BaseViewProtocol.swift in Sources */,
 				16CA6DB225C5E4C90063AD00 /* BaseViewModel.swift in Sources */,
 				16693FAA25C4DC8B00D9DE7D /* NewsViewModel.swift in Sources */,
 				16693EF525C4A78200D9DE7D /* AppDelegate.swift in Sources */,

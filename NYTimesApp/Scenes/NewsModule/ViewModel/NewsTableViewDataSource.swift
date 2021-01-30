@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NewsTableViewDataSource <CELL : UITableViewCell,T> : NSObject, UITableViewDataSource , UITableViewDelegate {
+class NewsTableViewDataSource <CELL : UITableViewCell,T> : NSObject, UITableViewDataSource {
     private var cellIdentifier : String!
     private var items : [T]!
     var configureCell : (CELL, T) -> () = {_,_ in }
@@ -32,15 +32,15 @@ class NewsTableViewDataSource <CELL : UITableViewCell,T> : NSObject, UITableView
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
+  
     
     
 
 }
-//class NewsTableViewDelegate  :  UITableViewDelegate {
-//
-//   
-//    
-//}
+class NewsTableViewDelegate  : NSObject, UITableViewDelegate {
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
+    
+}

@@ -7,13 +7,15 @@
 
 import UIKit
 import AlamofireImage
-class NewsViewController: UIViewController {
+import JGProgressHUD
+
+
+class NewsViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var newsViewModel:NewsViewModel!
     private var dataSource : NewsTableViewDataSource<NewsTableViewCell,NewsResult>!
-//    private var tableDelegate : NewsTableViewDelegate!
-
+    private var tableDelegate : NewsTableViewDelegate!
     private let cellIdentifer = "NewsCell"
     
     override func viewDidLoad() {
@@ -22,7 +24,6 @@ class NewsViewController: UIViewController {
         setupTableView()
         UpdateView()
     }
-    
     private func setupTableView()
     {
         tableView.register(UINib(nibName: cellIdentifer, bundle: nil),
@@ -31,8 +32,8 @@ class NewsViewController: UIViewController {
     
     private func UpdateView()
     {
-        
         self.newsViewModel =  NewsViewModel()
+        self.showLoading()
         self.newsViewModel.bindNewsViewModelToController = {
             self.updateDataSource()
         }
@@ -40,7 +41,8 @@ class NewsViewController: UIViewController {
     
     
     private func updateDataSource(){
-        
+        self.hideLoading()
+        self.tableDelegate = NewsTableViewDelegate()
         self.dataSource = NewsTableViewDataSource(cellIdentifier: cellIdentifer, items: self.newsViewModel.newsData.results, configureCell: { (cell, data) in
             cell.newsTitleLabel.text = data.title
             
@@ -51,7 +53,7 @@ class NewsViewController: UIViewController {
         
         DispatchQueue.main.async {
             self.tableView.dataSource = self.dataSource
-            self.tableView.delegate = self.dataSource
+                        self.tableView.delegate = self.tableDelegate
             self.tableView.reloadData()
         }
     }

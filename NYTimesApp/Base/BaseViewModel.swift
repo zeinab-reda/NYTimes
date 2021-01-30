@@ -18,19 +18,17 @@ class BaseViewModel {
 
     }
     
-//    func handelError(_ error: AppError, view: BaseViewProtocol?) {
-////         view?.showAlert(title: nil, message: error.message ?? "")
-//         switch error.errorType {
-//         case .noConnection :
-//             view?.showScreenNoConnection()
-//         case .unauthorized : // handel error for unauthorized
-//             view?.showLogin()
-//         case .internalServerError :
-//            view?.showErrorAlert(error: error.message ?? "")
-//         default:
-//             view?.showBlockScreenWithRetry()
-//         }
-//     }
+    func handelError(_ error: AppError, view: BaseViewProtocol?) {
+//         view?.showAlert(title: nil, message: error.message ?? "")
+         switch error.errorType {
+         case .noConnection :
+             view?.showScreenNoConnection()
+         case .internalServerError :
+            view?.showErrorAlert(error: error.message ?? "")
+         default:
+             view?.showBlockScreenWithRetry()
+         }
+     }
     
     deinit {
            if self.disposable != nil {

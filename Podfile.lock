@@ -2,6 +2,7 @@ PODS:
   - Alamofire (5.4.1)
   - AlamofireImage (4.1.0):
     - Alamofire (~> 5.1)
+  - JGProgressHUD (2.2)
   - Moya/Core (14.0.0):
     - Alamofire (~> 5.0)
   - Moya/RxSwift (14.0.0):
@@ -16,6 +17,7 @@ PODS:
 
 DEPENDENCIES:
   - AlamofireImage
+  - JGProgressHUD
   - Moya/RxSwift
   - RxCocoa
   - RxSwift
@@ -24,6 +26,7 @@ SPEC REPOS:
   trunk:
     - Alamofire
     - AlamofireImage
+    - JGProgressHUD
     - Moya
     - RxCocoa
     - RxRelay
@@ -32,11 +35,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   AlamofireImage: c4a2ba349885fb3064feb74d2e547bd42ce9be10
+  JGProgressHUD: d83d7a981b85d11205e19ff8ad5bb9c40571c847
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: f478a2ded60cde54f9bf3dabd29ed7d4348bc61e
+PODFILE CHECKSUM: 97fb738711170467fad54379832fe55bda723daf
 
 COCOAPODS: 1.9.3

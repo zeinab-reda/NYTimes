@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import AlamofireImage
 import JGProgressHUD
 import RxSwift
 

@@ -11,37 +11,35 @@ class NewsViewModel : BaseViewModel{
     
     private(set) var newsData : NewsModel! {
         didSet {
-            self.bindNewsViewModelToController()
+            self.bindNewsDataResults()
+        }
+    }
+    private(set) var error : AppError! {
+        didSet {
+            self.handelErrors()
         }
     }
     
-    var bindNewsViewModelToController : (() -> ()) = {}
+    var bindNewsDataResults : (() -> ()) = {} // closure with data results
+    var handelErrors: (() -> ()) = {} // losure with error
     
     override init() {
         super.init()
-        
-        fetchPopularNews().subscribe(){ completable in
-            switch completable {
-            case .completed:
-                print("Completed with no error")
-            case .error(let error):
-                print("Completed with an error: \(error.localizedDescription)")
-            }
-        }.disposed(by: disposeBag)
+        fetchPopularNews()
         
     }
-    func fetchPopularNews() -> Completable {
-        return .create { observer in
-            NetworkManager.shared.getNews(period: 7)
-                .subscribe(onSuccess: { [weak self]results in
-                    self?.newsData = results
-                    observer(.completed)
-                }, onError: { error in
-                    // there was an error fetching the news
-                    observer(.error(error))
-                })
-            
-        }
+    
+    // MARK : fetchNews is called network layer and return with data results
+    func fetchPopularNews() {
+        
+        NetworkManager.shared.getNews(period: 7)
+            .subscribe(onSuccess: { [weak self]results in
+                self?.newsData = results
+            }, onError: {[weak self] error in
+                // there was an error fetching the news
+                self?.error = error as? AppError
+            }).disposed(by: disposeBag)
+        
     }
     
 }

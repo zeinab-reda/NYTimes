@@ -9,13 +9,16 @@ import UIKit
 
 class NewsDetailsViewController: UIViewController {
 
+    var newsDetails:NewsResult?
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @objc public static func create() -> NewsDetailsViewController {
+         return UIStoryboard(name: K.StoryBoard.mainSB, bundle: Bundle.main).instantiateViewController(withIdentifier: String(describing: self)) as! NewsDetailsViewController
+     }
     /*
     // MARK: - Navigation
 

@@ -22,7 +22,7 @@ enum ErrorType {
 struct AppError :Error {
     var message :String?
     var errorType : ErrorType = .unkown
-    var errorCode: Int! {
+    var statusCode: Int! {
         willSet {
             switch newValue {
             case -1:
@@ -40,9 +40,10 @@ struct AppError :Error {
             case 204:
                 self.errorType = .NoContent
             default:
-                self.errorType = .unkown
+                self.errorType = .noConnection
             }
         }
     }
+    
     
 }

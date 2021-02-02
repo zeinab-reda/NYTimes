@@ -12,6 +12,10 @@ struct K {
         static let baseApiURL = "https://api.nytimes.com/svc/mostpopular/v2/"
         static let apiKey = "zK8wmak0ztjH2ZuguGztaWVxtU1wtBuD"
     }
+    struct StoryBoard
+    {
+        static let mainSB = "Main"
+    }
 }
 
 enum HTTPHeaderField: String {

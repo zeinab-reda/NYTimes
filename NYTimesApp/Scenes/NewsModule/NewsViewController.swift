@@ -8,14 +8,14 @@
 import UIKit
 import AlamofireImage
 import JGProgressHUD
+import RxSwift
 
 
 class NewsViewController: BaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
     private var newsViewModel:NewsViewModel!
-    private var dataSource : NewsTableViewDataSource<NewsTableViewCell,NewsResult>!
-    private var tableDelegate : NewsTableViewDelegate!
+    private var data_source_delegate : NewsTableViewDataSourceAndDelegate<NewsTableViewCell,NewsResult>!
     private let cellIdentifer = "NewsCell"
     
     override func viewDidLoad() {
@@ -34,29 +34,35 @@ class NewsViewController: BaseViewController {
     {
         self.newsViewModel =  NewsViewModel()
         self.showLoading()
-        self.newsViewModel.bindNewsViewModelToController = {
-            self.updateDataSource()
+        self.newsViewModel.bindNewsDataResults = {
+            self.updateData()
+        }
+        self.newsViewModel.handelErrors = {
+            self.hideLoading()
+            self.handelError(self.newsViewModel.error, view: self)
         }
     }
     
     
-    private func updateDataSource(){
+    private func updateData(){
         self.hideLoading()
-        self.tableDelegate = NewsTableViewDelegate()
-        self.dataSource = NewsTableViewDataSource(cellIdentifier: cellIdentifer, items: self.newsViewModel.newsData.results, configureCell: { (cell, data) in
-            cell.newsTitleLabel.text = data.title
-            
-            if let link = data.media.first?.mediaMetadata.first?.url, let url = URL(string: link) {
-                cell.newsImg.af.setImage(withURL: url, placeholderImage: #imageLiteral(resourceName: "noimage"))
-            }
+        self.data_source_delegate = NewsTableViewDataSourceAndDelegate(cellIdentifier: cellIdentifer, items: self.newsViewModel.newsData.results, configureCell: { (cell, data) in
+            cell.item = data
+        }, selectCell: { (selectedItem) in
+            let newsDetailsVC = NewsDetailsViewController.create()
+            newsDetailsVC.newsDetails = selectedItem
+            self.navigationController?.pushViewController(newsDetailsVC, animated: true)
         })
         
         DispatchQueue.main.async {
-            self.tableView.dataSource = self.dataSource
-                        self.tableView.delegate = self.tableDelegate
+            self.tableView.dataSource = self.data_source_delegate
+            self.tableView.delegate = self.data_source_delegate
             self.tableView.reloadData()
         }
     }
     
+    override func retryBlock() {
+        UpdateView()
+    }
     
 }

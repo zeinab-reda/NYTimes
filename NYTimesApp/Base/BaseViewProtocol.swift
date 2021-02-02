@@ -12,5 +12,8 @@ protocol BaseViewProtocol: class {
     func showScreenNoConnection()
     func showAlert(title: String?, message: String)
     func showErrorAlert(error: String)
-    func showBlockScreenWithRetry()
+    func showBlockScreenWithRetry(error: String)
+    func retryBlock()
 }
+
+

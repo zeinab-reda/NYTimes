@@ -9,7 +9,6 @@ import Foundation
 import RxSwift
 
 class BaseViewModel {
-    var disposable: Disposable?
     var disposeBag: DisposeBag
     
     
@@ -18,10 +17,4 @@ class BaseViewModel {
         
     }
     
-    deinit {
-        if self.disposable != nil {
-            _ = DisposeBag(disposing: self.disposable!)
-        }
-        
-    }
 }

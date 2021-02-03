@@ -16,7 +16,7 @@ class NewsTableViewCell: UITableViewCell {
         didSet {
             newsTitleLabel.text = item?.title
             
-            if let link = item?.media.first?.mediaMetadata.first?.url, let url = URL(string: link) {
+            if let link = item?.media?.first?.mediaMetadata?.first?.url, let url = URL(string: link) {
                 newsImg.af.setImage(withURL: url, placeholderImage: #imageLiteral(resourceName: "noimage"))}
         }
     }

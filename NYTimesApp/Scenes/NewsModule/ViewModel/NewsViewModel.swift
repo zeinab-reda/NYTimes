@@ -9,12 +9,12 @@ import RxSwift
 
 class NewsViewModel : BaseViewModel{
     
-    private(set) var newsData : NewsModel! {
+    private(set) var newsData : NewsModel? {
         didSet {
             self.bindNewsDataResults()
         }
     }
-    private(set) var error : AppError! {
+    private(set) var error : AppError? {
         didSet {
             self.handelErrors()
         }

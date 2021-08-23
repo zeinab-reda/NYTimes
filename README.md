@@ -4,7 +4,7 @@ NY Times Most Popular Articles API and show a list of articles, that shows detai
 
 Application is build on **MVVM** design architecture 
 
-![alt text](https://www.dotnetcurry.com/images/xamarin/mvvm/mvvm-schema.png)
+![alt text](https://cdn.journaldev.com/wp-content/uploads/2018/04/android-mvvm-pattern.png)
 
 
 run the app by "pod install" pod file . 
